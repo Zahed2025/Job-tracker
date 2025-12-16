@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrackr CLI</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+            color: #333;
+        }
+
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            color: #ff6347;
+            font-size: 2.5em;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        h2, h3 {
+            color: #ff6347;
+        }
+
+        .highlight {
+            background: #ffe4e1;
+            padding: 6px 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            color: #d9534f;
+            display: inline-block;
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .copy-btn {
+            background-color: #d9534f;
+            margin-left: 10px;
+        }
+
+        .copy-btn:hover {
+            background-color: #b52b27;
+        }
+
+        .command {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #555;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => alert("Copied to clipboard:\n" + text))
+                .catch(err => alert("Failed to copy: " + err));
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <h1>JobTrackr CLI</h1>
+</header>
+
+<section>
+    <h2>Overview</h2>
+    <p>
+        JobTrackr CLI is a command-line tool that helps users manage and track job applications
+        without relying on spreadsheets or manual notes. Users can add, update, delete, and list
+        job applications directly from the terminal.
+    </p>
+    <p>
+        The tool tracks company name, job role, application status, and application date, and
+        includes filtering and reminder features to help users follow up efficiently and stay organized.
+    </p>
+</section>
+
+<section>
+    <h2>How the Code Works</h2>
+    <ul>
+        <li>Written in Rust using the <b>clap</b> crate for command-line argument parsing.</li>
+        <li><b>Input:</b> Job details such as company, role, status, and optional flags.</li>
+        <li><b>Process:</b> Applications are stored locally and managed via CLI commands.</li>
+        <li><b>Output:</b> Job lists, filtered results, and reminders are printed in the terminal.</li>
+    </ul>
+
+    <h3>Example Commands</h3>
+
+    <div class="command">
+        <span class="highlight">./jobtrackr add "Google" "Software Engineer" "Applied"</span>
+        <button class="copy-btn"
+            onclick="copyToClipboard('cargo run -- add \"Google\" \"Software Engineer\" \"Applied\"')">
+            Copy
+        </button>
+    </div>
+
+    <div class="command">
+        <span class="highlight">./jobtrackr list</span>
+        <button class="copy-btn"
+            onclick="copyToClipboard('cargo run -- list')">
+            Copy
+        </button>
+    </div>
+
+    <div class="command">
+        <span class="highlight">./jobtrackr filter --company "Google"</span>
+        <button class="copy-btn"
+            onclick="copyToClipboard('cargo run -- filter --company \"Google\"')">
+            Copy
+        </button>
+    </div>
+
+    <div class="command">
+        <span class="highlight">./jobtrackr remind --days 7</span>
+        <button class="copy-btn"
+            onclick="copyToClipboard('cargo run -- remind --days 7')">
+            Copy
+        </button>
+    </div>
+</section>
+
+<section>
+    <h2>Marketing Points & Strategy</h2>
+    <ul>
+        <li>Ideal for job seekers, students, and professionals.</li>
+        <li>Removes the need for spreadsheets and manual tracking.</li>
+        <li>Filtering and reminders help ensure timely follow-ups.</li>
+        <li>Free and open-source, encouraging customization and extension.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>
+        For feedback or questions, contact:
+        <a href="mailto:hossen150md@gmail.com">hossen150md@gmail.com</a>
+    </p>
+</section>
+
+<section>
+    <h2>Quick Links</h2>
+    <button onclick="window.open('https://github.com/Zahed2025/Job-tracker')">
+        GitHub Repository
+    </button>
+</section>
+
+<footer>
+    <p>&copy; 2025 · Created by Md. Hossen</p>
+</footer>
+
+</body>
+</html>
